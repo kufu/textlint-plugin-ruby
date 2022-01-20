@@ -3,12 +3,12 @@
   "description": "Ruby plugin for textlint",
   "version": "3.0.1",
   "main": "lib/index.js",
-  "repository": "https://github.com/alpaca-tc/textlint-plugin-ruby.git",
+  "repository": "https://github.com/kufu/textlint-plugin-ruby.git",
   "author": "SmartHR textlint Team",
   "license": "MIT",
   "types": "lib/index.d.ts",
   "bugs": {
-    "url": "https://github.com/alpaca-tc/textlint-plugin-ruby/issues"
+    "url": "https://github.com/kufu/textlint-plugin-ruby/issues"
   },
   "engines": {
     "node": ">= 14.18.1"

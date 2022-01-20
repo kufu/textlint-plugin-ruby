@@ -10,7 +10,7 @@ Install with [npm](https://www.npmjs.com/):
 $ npm install --dev textlint-plugin-ruby
 ```
 
-Install [textlint-ruby](https://github.com/alpaca-tc/textlint-ruby) with [gem](https://guides.rubygems.org/command-reference/#gem-install):
+Install [textlint-ruby](https://github.com/kufu/textlint-ruby) with [gem](https://guides.rubygems.org/command-reference/#gem-install):
 
 ```sh
 # requires >= 2.0.0
@@ -35,7 +35,7 @@ Put following config to `.textlintrc`
   - Additional file extensions for markdown
 - `execCommand`: `string[]`
   - Default `["textlint-ruby", "--stdio"]`
-  - Set [textlint-ruby](https://github.com/alpaca-tc/textlint-ruby) executable command
+  - Set [textlint-ruby](https://github.com/kufu/textlint-ruby) executable command
 
 For example, if you want to treat custom extensions as ruby, put following config to `.textlintrc`
 
