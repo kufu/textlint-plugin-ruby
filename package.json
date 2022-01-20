@@ -15,11 +15,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
-      "stylelint --fix"
-    ],
-    "*.md{,x}": [
-      "textlint"
+      "eslint --fix"
     ]
   },
   "keywords": [
