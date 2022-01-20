@@ -23,6 +23,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Install Ruby dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt install -yq ruby-full
+          sudo gem install textlint-ruby
+
       - name: Test
         run: yarn test
 
