@@ -1,0 +1,36 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup NodeJS 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install Ruby dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt install -yq ruby-full
+          sudo gem install textlint-ruby
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn ts-test

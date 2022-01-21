@@ -3,15 +3,20 @@
   "description": "Ruby plugin for textlint",
   "version": "3.0.1",
   "main": "lib/index.js",
-  "repository": "https://github.com/alpaca-tc/textlint-plugin-ruby.git",
-  "author": "alpaca-tc <alpaca-tc@alpaca.tc>",
+  "repository": "https://github.com/kufu/textlint-plugin-ruby.git",
+  "author": "SmartHR textlint Team",
   "license": "MIT",
   "types": "lib/index.d.ts",
   "bugs": {
-    "url": "https://github.com/alpaca-tc/textlint-plugin-ruby/issues"
+    "url": "https://github.com/kufu/textlint-plugin-ruby/issues"
   },
   "engines": {
     "node": ">= 14.18.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix"
+    ]
   },
   "keywords": [
     "textlint",
@@ -26,9 +31,14 @@
     "build": "tsc",
     "lint": "eslint src/**/*.ts test/**/*.ts",
     "test": "mocha \"test/**/*.{js,ts}\"",
-    "ts-test": "tsc --noEmit"
+    "ts-test": "tsc --noEmit",
+    "prepublishOnly": "npm run --if-present build",
+    "release": "standard-version",
+    "release:dryrun": "standard-version --dry-run"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.0.3",
+    "@commitlint/config-conventional": "^16.0.0",
     "@textlint/ast-tester": "^12.1.0",
     "@textlint/kernel": "^12.1.0",
     "@textlint/types": "^12.1.0",
@@ -36,11 +46,14 @@
     "@types/node": "^16.11.10",
     "@types/tmp": "^0.2.2",
     "assert": "^2.0.0",
-    "eslint": "^8.3.0",
-    "eslint-config-smarthr": "^6.0.0",
+    "eslint": "^8.7.0",
+    "eslint-config-smarthr": "^6.0.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.2.1",
     "mocha": "^9.1.3",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "prettier-config-smarthr": "^1.0.0",
+    "standard-version": "^9.3.2",
     "textlint-rule-no-todo": "^2.0.1",
     "ts-node": "^10.4.0",
     "ts-node-test-register": "^10.0.0",
