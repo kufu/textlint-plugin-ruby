@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Next Version
+## [3.0.2]
 
 - [#1](https://github.com/kufu/textlint-plugin-ruby/pull/1) Change repository owner from @alpaca-tc to @kufu
   - Add eslint, huscky as so on
