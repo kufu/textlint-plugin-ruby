@@ -1,7 +1,7 @@
 {
   "name": "textlint-plugin-ruby",
   "description": "Ruby plugin for textlint",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "lib/index.js",
   "repository": "https://github.com/kufu/textlint-plugin-ruby.git",
   "author": "SmartHR textlint Team",
