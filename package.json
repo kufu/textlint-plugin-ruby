@@ -10,9 +10,6 @@
   "bugs": {
     "url": "https://github.com/kufu/textlint-plugin-ruby/issues"
   },
-  "engines": {
-    "node": ">= 14.18.1"
-  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix"
