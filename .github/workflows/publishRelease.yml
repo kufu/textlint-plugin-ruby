@@ -13,11 +13,11 @@ jobs:
       CHANGELOG_PATH: /tmp/CHANGELOG.md
       IS_PRERELEASE: ${{ contains(github.event.issue.labels.*.name, 'prerelease') }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
         with:
           ref: release-candidate
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8 # v2.5.2
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org"
@@ -42,7 +42,7 @@ jobs:
       - run: git push origin $NEW_TAG
       - run: npx ts-node ./scripts/getLatestChangelog.ts > ${{ env.CHANGELOG_PATH }}
       - name: create release on GitHub
-        uses: actions/create-release@v1
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -52,7 +52,7 @@ jobs:
           commitish: main
           prerelease: ${{ env.IS_PRERELEASE }}
       - name: close issue
-        uses: peter-evans/close-issue@v1
+        uses: peter-evans/close-issue@a700eac5bf2a1c7a8cb6da0c13f93ed96fd53dbe # v1.0.3
       - name: delete branch
         run: git push origin :release-candidate
       - name: cherry-pick release commit
@@ -60,7 +60,7 @@ jobs:
           git checkout main
           git cherry-pick $NEW_TAG
       - name: craete pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@18f7dc018cc2cd597073088f7c7591b9d1c02672 # v3.14.0
         with:
           title: "chore(release): ${{ env.NEW_TAG }}"
           branch: "merge-release-${{ env.NEW_TAG }}"
