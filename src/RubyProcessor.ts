@@ -13,14 +13,14 @@ const clientBuilder = ((): ClientBuilder => {
   return {
     shutdown: () => {
       if (client) {
-        client.enqueueShutdown().then(() => {
-          client = undefined
-        })
+        const shuttingDown = client
+        client = undefined
+        shuttingDown.enqueueShutdown()
       }
     },
 
     get: (execCommand: string[]) => {
-      if (!client) {
+      if (!client || client._process.killed || client._process.exitCode !== null) {
         client = new Client(execCommand)
       }
 
